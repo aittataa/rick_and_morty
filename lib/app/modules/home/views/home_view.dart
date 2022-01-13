@@ -17,8 +17,7 @@ class HomeView extends StatelessWidget {
           return BouncePoint(size: 30);
         } else {
           final AllCharacters characters = controller.characters.value;
-          return Center(child: Text(characters.results!.length.toString()));
-          //return Center(child: Text(characters.info!.count.toString()));
+          return Center(child: Text(characters.info!.pages.toString()));
         }
       }),
     );
