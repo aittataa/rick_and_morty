@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'app_message.dart';
 import 'app_theme.dart';
 
 class AppConstant {
   AppConstant._();
-
-  /// TODO : Screen Controller
-  static String appCurrency = AppMessage.currencyMAD;
 
   /// TODO : Screen Controller
   static PageController pageController = PageController();
@@ -32,13 +28,6 @@ class AppConstant {
   static const Duration durationSwap = Duration(milliseconds: 1000);
   static const Duration durationSplash = Duration(milliseconds: 1500);
   static const Duration durationSnack = Duration(milliseconds: 1500);
-
-  /// TODO : Currency List
-  static const List<String> currencyList = [
-    AppMessage.currencyMAD,
-    AppMessage.currencyUSD,
-    AppMessage.currencyEUR,
-  ];
 
   /// TODO : BoxShadow
   static BoxShadow boxShadow = BoxShadow(
