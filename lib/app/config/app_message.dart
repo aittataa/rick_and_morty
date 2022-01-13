@@ -14,8 +14,7 @@ class AppMessage {
   static const String appIconRound = "assets/app_icon_round.png";
 
   /// TODO : Label Navigation
-  static const String labelHome = "Home";
-  static const String labelCategories = "Categories";
-  static const String labelStatistic = "Statistic";
-  static const String labelSettings = "Settings";
+  static const String labelCharacter = "Character";
+  static const String labelEpisode = "Episode";
+  static const String labelLocation = "Location";
 }
