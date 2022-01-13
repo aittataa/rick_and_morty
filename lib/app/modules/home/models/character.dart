@@ -1,16 +1,21 @@
+import 'dart:convert';
+
 import 'info.dart';
 
-class Characters {
-  final Info info;
-  final List<Character> results;
+AllCharacters charactersFromJson(String str) => AllCharacters.fromJson(json.decode(str));
+List<Character> characterListFromJson(var body) => List<Character>.from(body.map((i) => Character.fromJson(i)));
 
-  Characters({
-    required this.info,
-    required this.results,
+class AllCharacters {
+  final Info? info;
+  final List<Character>? results;
+
+  AllCharacters({
+    this.info,
+    this.results,
   });
 
-  factory Characters.fromJson(Map<String, dynamic> json) {
-    return Characters(
+  factory AllCharacters.fromJson(Map<String, dynamic> json) {
+    return AllCharacters(
       info: Info.fromJson(json["info"]),
       results: List<Character>.from(json["results"].map((x) => Character.fromJson(x))),
     );
@@ -18,32 +23,32 @@ class Characters {
 }
 
 class Character {
-  final int id;
-  final String name;
-  final String status;
-  final String species;
-  final String type;
-  final String gender;
-  final CharacterLocation origin;
-  final CharacterLocation location;
-  final String image;
-  final List<String> episode;
-  final String url;
-  final DateTime created;
+  final int? id;
+  final String? name;
+  final String? status;
+  final String? species;
+  final String? type;
+  final String? gender;
+  final CharacterLocation? origin;
+  final CharacterLocation? location;
+  final String? image;
+  final List<String>? episode;
+  final String? url;
+  final DateTime? created;
 
   Character({
-    required this.id,
-    required this.name,
-    required this.status,
-    required this.species,
-    required this.type,
-    required this.gender,
-    required this.origin,
-    required this.location,
-    required this.image,
-    required this.episode,
-    required this.url,
-    required this.created,
+    this.id,
+    this.name,
+    this.status,
+    this.species,
+    this.type,
+    this.gender,
+    this.origin,
+    this.location,
+    this.image,
+    this.episode,
+    this.url,
+    this.created,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) {

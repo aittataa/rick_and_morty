@@ -15,8 +15,8 @@ const characterStatusValues = {
 };
 
 const characterGenderValues = {
-  CharacterGender.female: "Female",
   CharacterGender.male: "Male",
+  CharacterGender.female: "Female",
   CharacterGender.unknown: "unknown",
   CharacterGender.empty: "",
 };

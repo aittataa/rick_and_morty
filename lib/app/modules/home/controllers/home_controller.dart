@@ -1,20 +1,29 @@
 import 'package:get/get.dart';
+import 'package:rick_and_morty/app/config/app_response.dart';
+import 'package:rick_and_morty/app/modules/home/models/character.dart';
+import 'package:rick_and_morty/app/modules/home/providers/home_provider.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final HomeProvider _provider = Get.put(HomeProvider());
+  var appResponse = AppResponse().obs;
+  var state = false.obs;
+  var characters = AllCharacters().obs;
+  var characterList = <Character>[].obs;
+  var character = Character().obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    _getCharacters;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  get _getCharacters async {
+    state.value = true;
+    AppResponse response = await _provider.getCharacters;
+    if (response.success) {
+      characters.value = response.response;
+    }
+    appResponse.value = response;
+    state.value = false;
   }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }
