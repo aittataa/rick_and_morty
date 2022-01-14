@@ -12,11 +12,11 @@ class HomeProvider extends GetConnect {
   Uri _getUrl(String type) => Uri.parse("${httpClient.baseUrl}$type");
 
   /// TODO : About Characters
-  get getCharacters async {
+  getCharacters(CharacterFilter filter) async {
     final Uri uri = _getUrl(AppUrl.characters);
     print(uri);
     final response = await http.get(uri);
-    print(response);
+    print(response.body);
     final AppResponse appResponse = await AppResponse.requestResponse(response);
     if (appResponse.success) {
       return AppResponse(
