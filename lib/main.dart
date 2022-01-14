@@ -13,7 +13,7 @@ class RickAndMorty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "Application",
+      title: "appTitle",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     );
