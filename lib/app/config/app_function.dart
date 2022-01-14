@@ -32,30 +32,6 @@ class AppFunction {
     );
   }
 
-  static snackBar({required String title, required String message}) {
-    return Get.snackbar(
-      "",
-      "",
-      backgroundColor: AppTheme.expenseColor,
-      margin: EdgeInsets.only(top: 25, right: 15, left: 15),
-      duration: AppConstant.durationSnack,
-      titleText: Text(
-        title,
-        style: TextStyle(
-          color: AppTheme.secondaryTextColor,
-          fontWeight: FontWeight.w900,
-        ),
-      ),
-      messageText: Text(
-        message,
-        style: TextStyle(
-          color: AppTheme.secondaryTextColor,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
   static animateToPage(int index) {
     AppConstant.pageIndex = index;
     AppConstant.pageController.animateToPage(

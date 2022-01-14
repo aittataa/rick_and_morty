@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static const Color incomeColor = Color(0xff08ff00);
-  static const Color expenseColor = Color(0xfffd0000);
-
-  static const Color mainColor = Color(0xFFFF6051);
-  static const Color backgroundColor = Color(0xFFF0F0F0);
+  static const Color mainColor = Color(0xFF24282F);
+  static const Color backgroundColor = Color(0xFFF5F5F5);
   static const Color primaryBackColor = Color(0xFFFFFFFF);
-  static const Color secondaryBackColor = Color(0xFF000000);
+  static const Color secondaryBackColor = Color(0xFF3C3E44);
   static const Color transparentColor = Color(0x00000000);
   static const Color shadowColor = Color(0x1F000000);
 

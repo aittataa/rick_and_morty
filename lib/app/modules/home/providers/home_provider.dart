@@ -14,7 +14,9 @@ class HomeProvider extends GetConnect {
   /// TODO : About Characters
   get getCharacters async {
     final Uri uri = _getUrl(AppUrl.characters);
+    print(uri);
     final response = await http.get(uri);
+    print(response);
     final AppResponse appResponse = await AppResponse.requestResponse(response);
     if (appResponse.success) {
       return AppResponse(
