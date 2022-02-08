@@ -5,6 +5,7 @@ import 'package:rick_and_morty/app/modules/home/views/home_view.dart';
 
 import 'app/config/app_function.dart';
 import 'app/config/app_message.dart';
+import 'app/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class RickAndMorty extends StatelessWidget {
       title: AppMessage.appTitle,
       theme: AppTheme.themeData,
       // getPages: AppPages.routes,
-      // initialRoute: AppPages.INITIAL,
+      initialRoute: AppPages.INITIAL,
       home: HomeView(),
     );
   }
