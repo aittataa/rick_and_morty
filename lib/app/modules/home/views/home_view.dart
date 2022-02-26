@@ -62,9 +62,7 @@ class _HomeViewState extends State<HomeView> {
           return BouncePoint(size: 30);
         } else {
           AppResponse appResponse = controller.appResponse.value;
-          if (!appResponse.success) {
-            return ResponseError(response: appResponse);
-          } else {
+          if (appResponse.success) {
             //final AllCharacters characters = controller.characters.value;
             return PagedGridView(
               pagingController: PagingController(firstPageKey: 0),
@@ -76,6 +74,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             );
           }
+          return ResponseError(response: appResponse);
         }
       }),
     );
