@@ -4,8 +4,8 @@ class LocationFilter {
   final String dimension;
 
   LocationFilter({
-    this.name = '',
-    this.type = '',
-    this.dimension = '',
+    this.name = "",
+    this.type = "",
+    this.dimension = "",
   });
 }

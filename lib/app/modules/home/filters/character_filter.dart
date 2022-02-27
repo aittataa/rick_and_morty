@@ -8,10 +8,10 @@ class CharacterFilter {
   final CharacterGender gender;
 
   CharacterFilter({
-    this.name = '',
+    this.name = "",
     this.status = CharacterStatus.empty,
     this.species = CharacterSpecies.empty,
-    this.type = '',
+    this.type = "",
     this.gender = CharacterGender.empty,
   });
 }

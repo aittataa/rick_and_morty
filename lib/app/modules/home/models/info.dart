@@ -7,8 +7,8 @@ class Info {
   Info({
     required this.count,
     required this.pages,
-    this.next = '',
-    this.prev = '',
+    this.next = "",
+    this.prev = "",
   });
 
   factory Info.fromJson(Map<String, dynamic> json) {
