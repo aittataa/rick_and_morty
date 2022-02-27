@@ -15,13 +15,13 @@ class Splash extends StatelessWidget {
       splash: Column(
         children: [
           Expanded(flex: 3, child: Image.asset(AppMessage.appLogo, width: 200, height: 200)),
-          Expanded(child: BouncePoint(size: 60)),
+          Expanded(child: BouncePoint()),
         ],
       ),
       nextScreen: HomeView(),
       curve: AppConstant.curve,
       backgroundColor: AppTheme.primaryBackColor,
-      splashTransition: SplashTransition.slideTransition,
+      splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.rightToLeftWithFade,
       animationDuration: AppConstant.durationSplash,
       splashIconSize: double.infinity,
