@@ -11,7 +11,7 @@ class BouncePoint extends StatelessWidget {
   const BouncePoint({
     Key? key,
     this.state = true,
-    this.size = 64,
+    this.size = 50,
     this.color,
   }) : super(key: key);
 
@@ -19,7 +19,7 @@ class BouncePoint extends StatelessWidget {
   Widget build(BuildContext context) {
     if (state) {
       return SpinKitThreeBounce(
-        //size: size,
+        size: size,
         color: color ?? AppTheme.mainColor,
         duration: AppConstant.durationSplash,
       );

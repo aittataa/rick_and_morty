@@ -8,6 +8,15 @@ import 'app_theme.dart';
 class AppFunction {
   AppFunction._();
 
+  static gridDelegate({int crossAxisCount = 1, double spacing = 10, double childAspectRatio = 1}) {
+    return SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: crossAxisCount,
+      childAspectRatio: childAspectRatio,
+      mainAxisSpacing: spacing,
+      crossAxisSpacing: spacing,
+    );
+  }
+
   static messageBox({required String message}) {
     return Get.snackbar(
       "",
