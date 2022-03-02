@@ -4,6 +4,7 @@ import 'package:rick_and_morty/app/config/app_theme.dart';
 
 import 'app/config/app_function.dart';
 import 'app/config/app_message.dart';
+import 'app/shared/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
