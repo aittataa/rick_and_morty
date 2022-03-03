@@ -4,7 +4,7 @@ import 'package:rick_and_morty/app/config/app_theme.dart';
 
 import 'app/config/app_function.dart';
 import 'app/config/app_message.dart';
-import 'app/modules/home/views/home_view.dart';
+import 'app/shared/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +23,8 @@ class RickAndMorty extends StatelessWidget {
       theme: AppTheme.themeData,
       // getPages: AppPages.routes,
       // initialRoute: AppPages.INITIAL,
-      home: HomeView(),
-      // home: Splash(),
+      // home: HomeView(),
+      home: Splash(),
     );
   }
 }
