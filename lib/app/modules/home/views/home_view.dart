@@ -5,11 +5,10 @@ import 'package:rick_and_morty/app/config/app_function.dart';
 import 'package:rick_and_morty/app/config/app_message.dart';
 import 'package:rick_and_morty/app/config/app_response.dart';
 import 'package:rick_and_morty/app/config/app_theme.dart';
+import 'package:rick_and_morty/app/modules/home/controllers/home_controller.dart';
+import 'package:rick_and_morty/app/modules/home/models/character.dart';
 import 'package:rick_and_morty/app/shared/bounce_point.dart';
 import 'package:rick_and_morty/app/shared/response_error.dart';
-
-import '../controllers/home_controller.dart';
-import '../models/character.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -18,10 +17,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final HomeController controller = Get.put(HomeController());
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
