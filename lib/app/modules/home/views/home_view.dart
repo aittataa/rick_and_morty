@@ -41,15 +41,6 @@ class _HomeViewState extends State<HomeView> {
                 return CharacterShape(character: character);
               },
             );
-            /*return PagedGridView(
-              pagingController: PagingController(firstPageKey: 0),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-              builderDelegate: PagedChildBuilderDelegate(
-                itemBuilder: (context, item, i) {
-                  return SizedBox();
-                },
-              ),
-            );*/
           }
           return ResponseError(response: appResponse);
         }
