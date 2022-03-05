@@ -23,8 +23,8 @@ class RickAndMorty extends StatelessWidget {
       theme: AppTheme.themeData,
       // getPages: AppPages.routes,
       // initialRoute: AppPages.INITIAL,
-      // home: HomeView(),
-      home: Splash(),
+      home: HomeView(),
+      // home: Splash(),
     );
   }
 }
