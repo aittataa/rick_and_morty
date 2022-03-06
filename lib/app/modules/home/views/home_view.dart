@@ -66,36 +66,38 @@ class EpisodeShape extends StatelessWidget {
       ),
       child: ListTile(
         dense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 10),
-        minVerticalPadding: 0,
-        minLeadingWidth: 0,
-        horizontalTitleGap: 0,
-        title: Text(
-          "${episode.name}",
-          style: TextStyle(
-            color: AppTheme.mainColor,
-            fontWeight: FontWeight.bold,
-          ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 15),
+        title: Row(
+          children: [
+            Expanded(
+              child: Text(
+                "${episode.name}",
+                style: TextStyle(
+                  color: AppTheme.mainColor,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+            Text(
+              "${episode.characters.length} Characters",
+              style: TextStyle(
+                color: AppTheme.mainColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
         subtitle: Row(
           children: [
             Expanded(
               child: Text(
                 "${episode.episode}",
-                style: TextStyle(
-                  color: AppTheme.mainColor,
-                  // fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: AppTheme.mainColor),
               ),
             ),
-            Expanded(
-              child: Text(
-                "${episode.airDate}",
-                style: TextStyle(
-                  color: AppTheme.mainColor,
-                  // fontWeight: FontWeight.bold,
-                ),
-              ),
+            Text(
+              "${episode.airDate}",
+              style: TextStyle(color: AppTheme.mainColor),
             ),
           ],
         ),
