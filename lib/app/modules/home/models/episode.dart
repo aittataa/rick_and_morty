@@ -1,16 +1,21 @@
+import 'dart:convert';
+
 import 'info.dart';
 
-class Episodes {
-  final Info info;
-  final List<Episode> results;
+AllEpisodes episodesFromJson(String str) => AllEpisodes.fromJson(json.decode(str));
+List<Episode> episodeListFromJson(var body) => List<Episode>.from(body.map((i) => Episode.fromJson(i)));
 
-  Episodes({
-    required this.info,
-    required this.results,
+class AllEpisodes {
+  final Info? info;
+  final List<Episode>? results;
+
+  AllEpisodes({
+    this.info,
+    this.results,
   });
 
-  factory Episodes.fromJson(Map<String, dynamic> json) {
-    return Episodes(
+  factory AllEpisodes.fromJson(Map<String, dynamic> json) {
+    return AllEpisodes(
       info: Info.fromJson(json["info"]),
       results: List<Episode>.from(json["results"].map((x) => Episode.fromJson(x))),
     );

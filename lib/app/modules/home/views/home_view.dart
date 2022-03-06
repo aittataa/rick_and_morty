@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rick_and_morty/app/config/app_constant.dart';
-import 'package:rick_and_morty/app/config/app_function.dart';
 import 'package:rick_and_morty/app/config/app_message.dart';
 import 'package:rick_and_morty/app/config/app_response.dart';
 import 'package:rick_and_morty/app/config/app_theme.dart';
 import 'package:rick_and_morty/app/modules/home/controllers/home_controller.dart';
 import 'package:rick_and_morty/app/modules/home/models/character.dart';
+import 'package:rick_and_morty/app/modules/home/models/episode.dart';
 import 'package:rick_and_morty/app/shared/bounce_point.dart';
 import 'package:rick_and_morty/app/shared/response_error.dart';
 
@@ -23,28 +23,83 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(title: Text(AppMessage.appTitle)),
       body: Obx(() {
-        final bool state = controller.state.value;
+        final bool state = controller.episodesState.value;
         if (state) {
           return BouncePoint(size: 30);
         } else {
-          AppResponse appResponse = controller.appResponse.value;
+          final AppResponse appResponse = controller.episodesResponse.value;
           if (appResponse.success) {
-            final AllCharacters characters = controller.characters.value;
-            return GridView.builder(
+            final AllEpisodes episodes = controller.episodes.value;
+            return ListView.builder(
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               padding: EdgeInsets.all(10),
-              gridDelegate: AppFunction.gridDelegate(crossAxisCount: 2, childAspectRatio: .75),
-              itemCount: characters.results!.length,
+              itemCount: episodes.results!.length,
               itemBuilder: (context, i) {
-                final Character character = characters.results![i];
-                return CharacterShape(character: character);
+                final Episode episode = episodes.results![i];
+                return EpisodeShape(episode: episode);
               },
             );
           }
           return ResponseError(response: appResponse);
         }
       }),
+    );
+  }
+}
+
+class EpisodeShape extends StatelessWidget {
+  final Episode episode;
+  const EpisodeShape({
+    Key? key,
+    required this.episode,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 5),
+      decoration: BoxDecoration(
+        color: AppTheme.primaryBackColor,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [AppConstant.boxShadow],
+      ),
+      child: ListTile(
+        dense: true,
+        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        minVerticalPadding: 0,
+        minLeadingWidth: 0,
+        horizontalTitleGap: 0,
+        title: Text(
+          "${episode.name}",
+          style: TextStyle(
+            color: AppTheme.mainColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        subtitle: Row(
+          children: [
+            Expanded(
+              child: Text(
+                "${episode.episode}",
+                style: TextStyle(
+                  color: AppTheme.mainColor,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Text(
+                "${episode.airDate}",
+                style: TextStyle(
+                  color: AppTheme.mainColor,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

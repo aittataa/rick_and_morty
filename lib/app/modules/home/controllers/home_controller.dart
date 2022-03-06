@@ -1,24 +1,41 @@
 import 'package:get/get.dart';
 import 'package:rick_and_morty/app/config/app_response.dart';
-import 'package:rick_and_morty/app/modules/home/filters/character_filter.dart';
-import 'package:rick_and_morty/app/modules/home/models/character.dart';
+import 'package:rick_and_morty/app/modules/home/models/episode.dart';
 import 'package:rick_and_morty/app/modules/home/providers/home_provider.dart';
+
+import '../filters/episode_filter.dart';
 
 class HomeController extends GetxController {
   final HomeProvider _provider = Get.put(HomeProvider());
-  var appResponse = AppResponse().obs;
-  var state = false.obs;
-  var characters = AllCharacters().obs;
-  var characterList = <Character>[].obs;
-  var character = Character().obs;
+
+  /// TODO : Episodes
+  var episodesResponse = AppResponse().obs;
+  var episodes = AllEpisodes().obs;
+  var episodesState = false.obs;
+
+  /// TODO : Characters
+  // var appResponse = AppResponse().obs;
+  // var state = false.obs;
+  // var characters = AllCharacters().obs;
 
   @override
   void onInit() {
     super.onInit();
-    _getCharacters;
+    _getEpisodes;
+    //_getCharacters;
   }
 
-  get _getCharacters async {
+  get _getEpisodes async {
+    episodesState.value = true;
+    AppResponse response = await _provider.getEpisodes(EpisodeFilter());
+    if (response.success) {
+      episodes.value = response.response;
+    }
+    episodesResponse.value = response;
+    episodesState.value = false;
+  }
+
+  /*get _getCharacters async {
     state.value = true;
     AppResponse response = await _provider.getCharacters(CharacterFilter());
     if (response.success) {
@@ -26,5 +43,5 @@ class HomeController extends GetxController {
     }
     appResponse.value = response;
     state.value = false;
-  }
+  }*/
 }
