@@ -46,24 +46,6 @@ class HomeProvider extends GetConnect {
     }
   }
 
-  /*filterCharacters(CharacterFilter filter) async {
-    final String search = '''?name=${filter.name}&status=${characterStatusValues[filter.status]}&gender=${characterGenderValues[filter.gender]}&type=${filter.type}&species=${characterSpeciesValues[filter.species]}''';
-    final Uri uri = _getUrl("${AppUrl.characters}$search");
-    print(uri);
-    final response = await http.get(uri);
-    final AppResponse appResponse = await AppResponse.requestResponse(response);
-    if (appResponse.success) {
-      return AppResponse(
-        success: appResponse.success,
-        messageServer: appResponse.messageServer,
-        messageUser: appResponse.messageUser,
-        response: characterListFromJson(appResponse.response.body),
-      );
-    } else {
-      return appResponse;
-    }
-  }*/
-
   /// TODO : About Characters
   getCharacters(CharacterFilter filter) async {
     final Uri uri = _getUrl(AppUrl.characters);
